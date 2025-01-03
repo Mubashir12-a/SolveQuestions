@@ -1,5 +1,8 @@
 //package Using_Java;
 
+import java.util.Scanner;
+
+
 public class First_N_Fibonacci {
     public static void main(String[] args) {
         // 0 + 1 = 1
@@ -8,7 +11,12 @@ public class First_N_Fibonacci {
         //             2 + 3 = 5
         //                 3 + 5 = 8 ...so-on
 
-        int First_N_fibbo = 5;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter The  Range : ");
+        int First_N_fibbo = scanner.nextInt();
+
+        scanner.close();
     
         int [] arr = new int[First_N_fibbo];
         arr[0] = 0;
