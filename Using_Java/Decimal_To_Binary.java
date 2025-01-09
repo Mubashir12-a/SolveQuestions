@@ -1,48 +1,65 @@
-// import java.util.ArrayList;
-// import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-// // Note 0 & 1 Dicimal Number Binaray is also 0 and 1;
+// Note 0 & 1 Dicimal Number Binaray is also 0 and 1;
 
-// public class Decimal_To_Binary {
-//     public static void main(String[] args) {
-//         Scanner scanner = new Scanner(System.in);
+public class Decimal_To_Binary {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num = 0;
 
-//         System.out.print("Enter Any Decimal Number : ");
-//         int num = scanner.nextInt();
+        while(true){
+            try{
+                System.out.print("Enter Any Decimal Number : ");
+                num = scanner.nextInt();
+    
+                if(num < 0){
+                    throw new IllegalArgumentException("Number Must be Positive");
+                }
 
-//         scanner.close();
+                break;
+    
+            } catch(IllegalArgumentException e){
+    
+                System.out.println(e.getMessage());
+                scanner.nextLine();
+    
+            } catch(Exception e){
+    
+                System.out.println("Invalid Input By User!");
+                scanner.nextLine();
+            }
+        }
+            
+        scanner.close();
+        
 
-//         int OutPut = num;
-//         int r = 0;
+        int OutPut = num;
 
-//         ArrayList<Integer> Arr = new ArrayList<>();
+        ArrayList<Integer> Arr = new ArrayList<>();
 
-//         while (num > 1) {
-//             if (num % 2 == 0) {
-//                 Arr.add(0);
-//                 num /= 2;
-//                 System.out.println("0");
-//             }
+        if (num == 0) {
+            Arr.add(0);
+        } else {
+            while (num >= 1) {
+                if (num % 2 == 0) {
+                    // System.out.println("0");
+                    Arr.add(0);
+                    num = num / 2;
+                } else {
+                    // System.out.println("1");
+                    Arr.add(1);
+                    num = num - 1;
+                    num = num / 2;
+                }
+            }
+        }
 
-//             if (num % 2 != 0) {
-//                 Arr.add(1);
-//                 r = num % 2;
-//                 num -= r;
-//                 if(num > 1){
-//                     num /= num;
-//                 }
-//                 else{
-//                     num = 0;
-//                 }
-//                 System.out.println("1");
-//             }
-//         }
+        System.out.print("Given Decimal Number " + OutPut + " Binary is : ");
 
-//         System.out.print("Given Decimal Number " + OutPut + " Binary is : ");
+        for (int i = (Arr.size() - 1); i >= 0; i--) {
+            System.out.print(Arr.get(i));
+        }
 
-//         for(int i = (Arr.size() - 1); i >= 0; i--){
-//             System.out.print(Arr.get(i) + " ");
-//         }
-
-//     }
-// }
+    }
+}
