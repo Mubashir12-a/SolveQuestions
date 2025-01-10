@@ -26,6 +26,8 @@ public class Large_In_3_Num {
             }
         }
 
+        scanner.close();
+
         int large = arr[0];
 
 
