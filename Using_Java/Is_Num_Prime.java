@@ -10,8 +10,18 @@ public class Is_Num_Prime {
         int Num;
         boolean FlagPrime = true;
 
-        System.out.print("Enter The Number : ");
-        Num = scanner.nextInt();
+        while(true){
+            try{
+                System.out.print("Enter The Number : ");
+                Num = scanner.nextInt();
+
+                break;
+            } catch(Exception e){
+                System.out.println("Invalid Input");
+                scanner.nextLine();
+            }
+        }
+
 
         scanner.close();
 
