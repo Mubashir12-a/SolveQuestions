@@ -6,7 +6,6 @@ public class Large_In_3_Num {
         
         int arr [] = new int[3];
 
-        DoThis:
         while(true){
             try {
 
@@ -22,7 +21,6 @@ public class Large_In_3_Num {
             } catch(Exception e){
                 System.out.println("\nInvalid Input \nTry Again\n\n\n");
                 scanner.nextLine();
-                continue DoThis;
             }
         }
 
