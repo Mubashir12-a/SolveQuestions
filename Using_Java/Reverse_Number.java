@@ -3,44 +3,42 @@ import java.util.Scanner;
 public class Reverse_Number {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int Num = 0;
+        String Num = "";
         
 
         while(true){
             try {
                 System.out.print("Enter The Number : ");
-                Num = scanner.nextInt();
+                Num = scanner.nextLine();
 
-                if(Num < 0){
+                if(Num.charAt(0) == '-'){
                     throw new IllegalArgumentException("\u001B[31m" + "Number Should be positive\n" + "\u001B[37m");
+                }
+
+                for(int i = 0; i < Num.length(); i++){
+                    if(!Character.isDigit(Num.charAt(i))){
+                        throw new IllegalArgumentException("Invalid Input Please Enter the Number.");
+                    }
                 }
                 
                 break;
 
             } catch (IllegalArgumentException e) {
-
                 System.out.println(e.getMessage());
-                scanner.nextLine();
-
-            } catch (Exception e){
-                
-                System.out.println("\u001B[31m" + "Invalid Input!\n" + "\u001B[37m");
-                scanner.nextLine();
-            }
+            } 
         }
         
         scanner.close();
 
-        int Reverse = 0;
+        String Reverse = "";
 
-        while(Num != 0){
-            Reverse *= 10;
-            Reverse += Num % 10;
-            Num /= 10;
+        //System.out.println(Num.length());
+
+        for(int i = 0; i < Num.length(); i++){
+                Reverse = Reverse + Num.charAt((Num.length() - 1) - i);
         }
 
         System.out.println("\u001B[32m" + "Reverse Of Number Is : " + "\u001B[34m" + Reverse + "\u001B[37m");
-
 
     }
 }
